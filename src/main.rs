@@ -1,9 +1,12 @@
 mod to_do;
-use to_do::enums::TaskStatus;
+
+use crate::to_do::structs::{done::Done, pending::Pending};
 
 fn main() {
-    println!("{}", TaskStatus::Done);
-    println!("{}", TaskStatus::Pending);
-    let outcome = TaskStatus::Done.to_string();
-    println!("{}", outcome);
+    let done = Done::new("shopping");
+    println!("{}", done.super_struct.title);
+    println!("{}", done.super_struct.status);
+    let pending = Pending::new("laundry");
+    println!("{}", pending.super_struct.title);
+    println!("{}", pending.super_struct.status);
 }
