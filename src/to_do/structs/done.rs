@@ -14,3 +14,12 @@ impl Done {
         Done { super_struct: base }
     }
 }
+
+#[test]
+fn test_task_done_values() {
+    let done = Done::new("Done");
+    assert_eq!(
+        done.super_struct.status.stringify(),
+        TaskStatus::Done.to_string()
+    );
+}

@@ -14,3 +14,12 @@ impl Pending {
         Pending { super_struct: base }
     }
 }
+
+#[test]
+fn test_task_pending_values() {
+    let pending = Pending::new("Pending");
+    assert_eq!(
+        pending.super_struct.status.stringify(),
+        TaskStatus::Pending.to_string()
+    );
+}
