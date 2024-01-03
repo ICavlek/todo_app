@@ -17,3 +17,9 @@ impl fmt::Display for TaskStatus {
         }
     }
 }
+
+#[test]
+fn test_task_status_values() {
+    assert_eq!(TaskStatus::Done.to_string(), "DONE");
+    assert_eq!(TaskStatus::Pending.to_string(), "PENDING");
+}
