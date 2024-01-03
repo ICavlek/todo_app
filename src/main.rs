@@ -1,17 +1,27 @@
-use to_do::{enums::TaskStatus, to_do_factory, ItemTypes};
+use to_do::{
+    enums::TaskStatus,
+    to_do_factory,
+    traits::{delete::Delete, edit::Edit, get::Get},
+    ItemTypes,
+};
 
 mod to_do;
 
 fn main() {
-    let to_do_item = to_do_factory("washing", TaskStatus::Done);
+    let to_do_item = to_do_factory("Washing", TaskStatus::Done);
     match to_do_item {
         ItemTypes::Done(item) => {
-            println!("{}", item.super_struct.status.stringify());
-            println!("{}", item.super_struct.title);
+            println!(
+                "{} is {}",
+                item.super_struct.title,
+                item.super_struct.status.stringify()
+            );
+            item.get(&item.super_struct.title);
+            item.delete(&item.super_struct.title);
         }
         ItemTypes::Pending(item) => {
-            println!("{}", item.super_struct.status.stringify());
-            println!("{}", item.super_struct.title);
+            item.get(&item.super_struct.title);
+            item.set_to_done(&item.super_struct.title);
         }
     }
 }
