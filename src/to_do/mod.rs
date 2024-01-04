@@ -17,23 +17,28 @@ pub fn to_do_factory(title: &str, status: TaskStatus) -> ItemTypes {
     }
 }
 
-#[test]
-fn test_to_do_factory() {
-    let pending_task = to_do_factory("Washing", TaskStatus::Pending);
-    let done_task = to_do_factory("Shopping", TaskStatus::Done);
-    match pending_task {
-        ItemTypes::Pending(task) => assert_eq!(
-            task.super_struct.status.stringify(),
-            task.super_struct.status.to_string()
-        ),
-        _ => {}
-    };
+#[cfg(test)]
+mod tests {
+    use super::{enums::TaskStatus, to_do_factory, ItemTypes};
 
-    match done_task {
-        ItemTypes::Done(task) => assert_eq!(
-            task.super_struct.status.stringify(),
-            task.super_struct.status.to_string()
-        ),
-        _ => {}
-    };
+    #[test]
+    fn test_to_do_factory() {
+        let pending_task = to_do_factory("Washing", TaskStatus::Pending);
+        let done_task = to_do_factory("Shopping", TaskStatus::Done);
+        match pending_task {
+            ItemTypes::Pending(task) => assert_eq!(
+                task.super_struct.status.stringify(),
+                task.super_struct.status.to_string()
+            ),
+            _ => {}
+        };
+
+        match done_task {
+            ItemTypes::Done(task) => assert_eq!(
+                task.super_struct.status.stringify(),
+                task.super_struct.status.to_string()
+            ),
+            _ => {}
+        };
+    }
 }

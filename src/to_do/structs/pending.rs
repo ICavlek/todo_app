@@ -23,11 +23,16 @@ impl Get for Pending {}
 impl Edit for Pending {}
 impl Create for Pending {}
 
-#[test]
-fn test_task_pending_values() {
-    let pending = Pending::new("Pending");
-    assert_eq!(
-        pending.super_struct.status.stringify(),
-        TaskStatus::Pending.to_string()
-    );
+#[cfg(test)]
+mod tests {
+    use crate::to_do::{enums::TaskStatus, structs::pending::Pending};
+
+    #[test]
+    fn test_task_pending_values() {
+        let pending = Pending::new("Pending");
+        assert_eq!(
+            pending.super_struct.status.stringify(),
+            TaskStatus::Pending.to_string()
+        );
+    }
 }

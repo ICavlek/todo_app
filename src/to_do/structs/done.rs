@@ -22,11 +22,16 @@ impl Get for Done {}
 impl Delete for Done {}
 impl Edit for Done {}
 
-#[test]
-fn test_task_done_values() {
-    let done = Done::new("Done");
-    assert_eq!(
-        done.super_struct.status.stringify(),
-        TaskStatus::Done.to_string()
-    );
+#[cfg(test)]
+mod tests {
+    use crate::to_do::{enums::TaskStatus, structs::done::Done};
+
+    #[test]
+    fn test_task_done_values() {
+        let done = Done::new("Done");
+        assert_eq!(
+            done.super_struct.status.stringify(),
+            TaskStatus::Done.to_string()
+        );
+    }
 }
