@@ -1,11 +1,11 @@
+mod to_do;
+
 use to_do::{
     enums::TaskStatus,
     to_do_factory,
     traits::{delete::Delete, edit::Edit, get::Get},
     ItemTypes,
 };
-
-mod to_do;
 
 fn main() {
     let to_do_item = to_do_factory("Washing", TaskStatus::Done);
