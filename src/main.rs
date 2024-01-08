@@ -5,7 +5,7 @@ use std::env;
 
 use serde_json::{json, Map, Value};
 use state::read_file;
-use to_do::{enums::TaskStatus, to_do_factory, traits::edit::Edit, ItemTypes};
+use to_do::{enums::TaskStatus, to_do_factory, ItemTypes};
 
 use crate::state::write_to_file;
 
@@ -19,9 +19,7 @@ fn to_do_factory_func() {
                 item.super_struct.status.stringify()
             );
         }
-        ItemTypes::Pending(item) => {
-            item.set_to_done(&item.super_struct.title);
-        }
+        ItemTypes::Pending(_) => {}
     }
 }
 
