@@ -3,12 +3,12 @@ mod to_do;
 
 use std::env;
 
-use serde_json::{Map, Value, json};
+use serde_json::{json, Map, Value};
 use state::read_file;
 use to_do::{
     enums::TaskStatus,
     to_do_factory,
-    traits::{delete::Delete, edit::Edit, get::Get},
+    traits::{delete::Delete, edit::Edit},
     ItemTypes,
 };
 
@@ -23,11 +23,9 @@ fn to_do_factory_func() {
                 item.super_struct.title,
                 item.super_struct.status.stringify()
             );
-            item.get(&item.super_struct.title);
             item.delete(&item.super_struct.title);
         }
         ItemTypes::Pending(item) => {
-            item.get(&item.super_struct.title);
             item.set_to_done(&item.super_struct.title);
         }
     }
@@ -37,8 +35,7 @@ fn reading_writing_json() {
     let args: Vec<String> = env::args().collect();
     let status: &String = &args[1];
     let title: &String = &args[2];
-    let mut state: Map<String, Value> =
-    read_file("./state.json");
+    let mut state: Map<String, Value> = read_file("./state.json");
     println!("Before operation: {:?}", state);
     state.insert(title.to_string(), json!(status));
     println!("After operation: {:?}", state);
