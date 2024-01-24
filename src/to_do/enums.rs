@@ -12,6 +12,8 @@ impl TaskStatus {
             Self::Pending => "PENDING".to_string(),
         }
     }
+
+    #[allow(dead_code)]
     pub fn from_string(input_string: String) -> Self {
         match input_string.as_str() {
             "DONE" => TaskStatus::Done,
