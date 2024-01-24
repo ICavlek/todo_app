@@ -1,5 +1,8 @@
 use std::fmt;
 
+use serde::Serialize;
+
+#[derive(Serialize)]
 pub enum TaskStatus {
     Done,
     Pending,
