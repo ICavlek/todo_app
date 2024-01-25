@@ -9,6 +9,10 @@ pub enum TaskStatus {
 }
 
 impl TaskStatus {
+    pub fn new(input_string: &str) -> TaskStatus {
+        TaskStatus::from_string(input_string.to_string())
+    }
+
     pub fn stringify(&self) -> String {
         match self {
             Self::Done => "DONE".to_string(),
