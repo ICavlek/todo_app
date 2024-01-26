@@ -2,6 +2,7 @@ use actix_service::Service;
 use actix_web::{App, HttpServer};
 
 mod json_serialization;
+mod jwt;
 mod processes;
 mod state;
 mod to_do;
