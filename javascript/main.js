@@ -50,3 +50,13 @@ function editItem() {
   };
   call.send(JSON.stringify(json));
 }
+
+function deleteItem() {
+  let title = this.id.replaceAll("-", " ").replace("delete ", "");
+  let call = apiCall("/v1/item/delete", "POST");
+  let json = {
+    "title": title,
+    "status": "DONE"
+  };
+  call.send(JSON.stringify(json));
+}
