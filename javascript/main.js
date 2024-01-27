@@ -1,10 +1,16 @@
-let createButton = document.getElementById("create-button");
-createButton.addEventListener("click", postAlert);
+getItems();
+document.getElementById("create-button").addEventListener("click", createItem);
 
-function postAlert() {
-  let titleInput = document.getElementById("name");
-  alert(titleInput.value);
-  titleInput.value = null;
+function getItems() {
+  let call = apiCall("/v1/item/get", 'GET');
+  call.send()
+}
+
+function createItem() {
+  let title = document.getElementById("name");
+  let call = apiCall("/v1/item/create/" + title.value, "POST");
+  call.send();
+  document.getElementById("name").value = null;
 }
 
 function apiCall(url, method) {
