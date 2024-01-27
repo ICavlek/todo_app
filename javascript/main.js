@@ -40,3 +40,13 @@ function renderItems(items, processType, elementId, processFunction) {
     document.getElementById(itemsMeta[i]["id"]).addEventListener("click", processFunction);
   }
 }
+
+function editItem() {
+  let title = this.id.replaceAll("-", " ").replace("edit ", "");
+  let call = apiCall("/v1/item/edit", "POST");
+  let json = {
+    "title": title,
+    "status": "DONE"
+  };
+  call.send(JSON.stringify(json));
+}
