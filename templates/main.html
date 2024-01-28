@@ -7,14 +7,20 @@
     <meta name="description" content="This is a simple to do app"/>
     <title>To Do App</title>
   </head>
-  <body>
-    <h1>Done Items</h1>
-    <div id="doneItems"></div>
-    <h1>To Do items</h1>
-    <div id="pendingItems"></div>
-    <input type="text" id="name" placeholder="create to do item"/>
-    <button id="create-button" value="Send">Create</button>
-  </body>
+  <style>
+    {{BASE_CSS}}
+    {{CSS}}
+  </style>
+  <div>
+    <body>
+      <h1>Done Items</h1>
+      <div id="doneItems"></div>
+      <h1>To Do items</h1>
+      <div id="pendingItems"></div>
+      <input type="text" id="name" placeholder="create to do item"/>
+      <button id="create-button" value="Send">Create</button>
+    </body>
+  </div>
   <script>
     {{JAVASCRIPT}}
   </script>
