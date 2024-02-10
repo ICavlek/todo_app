@@ -10,7 +10,7 @@ class ToDoItem extends Component {
   }
 
   processStatus(status) {
-    if (status === "PENDING") {
+    if (status === "Pending") {
       return "edit"
     } else {
       return "delete"
@@ -18,7 +18,7 @@ class ToDoItem extends Component {
   }
 
   inverseStatus(status) {
-    if (status === "PENDING") {
+    if (status === "Pending") {
       return "DONE"
     } else {
       return "PENDING"
