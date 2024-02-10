@@ -35,7 +35,13 @@ class App extends Component {
 
   // convert items from API to HTML
   processItemValues(items) {
-
+    let itemList = [];
+    items.forEach((item, index) => {
+      itemList.push(
+        <li key={index}>{item.title} {item.status}</li>
+      )
+    });
+    return itemList;
   }
 
   // returns the HTML to be rendered
