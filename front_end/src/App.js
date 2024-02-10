@@ -48,7 +48,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <p>To do application</p>
+        <h1>Done Items</h1>
+        <p>done item count: {this.state.done_items_count}</p>
+        {this.state.done_items}
+        <h1>Pending Items</h1>
+        <p>pending item count:{this.state.pending_items_count}</p>
+        {this.state.pending_items}
       </div>
     )
   }
