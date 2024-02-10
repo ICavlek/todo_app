@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ToDoItem from "./components/ToDoItem";
 import CreateToDoItem from "./components/CreateToDoItem";
+import "./App.css";
 
 class App extends Component {
   state = {
@@ -61,13 +62,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Pending Items</h1>
-        <p>Pending items count: {this.state.pending_items_count}</p>
-        {this.state.pending_items}
-        <h1>Done Items</h1>
-        <p>Done items count: {this.state.done_items_count}</p>
-        {this.state.done_items}
-        <CreateToDoItem passBackResponse={this.handleReturnedState} />
+        <div className="mainContainer">
+          <div className="header">
+            <p>complete tasks: {this.state.done_items_count}</p>
+            <p>pending tasks: {this.state.pending_items_count}</p>
+          </div>
+          <h1>Pending Items</h1>
+          {this.state.pending_items}
+          <h1>Done Items</h1>
+          {this.state.done_items}
+          <CreateToDoItem passBackResponse= {this.handleReturnedState}/>
+        </div>
       </div>
     )
   }
